@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: litspacev2-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: litspacev2_db
+      POSTGRES_USER: gbarbosa
+      POSTGRES_PASSWORD: gbarbosa-pass
+      volumes: litspacev2_pgdata:/var/lib/postgresql/data
+
+volumes:
+  litspacev2_pgdata:
